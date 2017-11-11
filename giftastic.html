@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<title>*Gif-Tastic*</title>
+	<!-- Link to JQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<!-- Link to Javascript -->
+	<script src="assets/javascript/logic.js"></script>
+	<!-- Link to Stylesheet (CSS) -->
+	<link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+	<div class="container">
+
+		<header id="header">
+			<h1>Gif-Tastic</h1>
+		</header>
+
+		<form id="animalForm">
+			<!-- Description -->
+			<label for="animalInput">Type your favorite animal and create button to load GIF images!</label><p>
+			<!-- Area to input text to create more buttons -->
+			<input type="text" id="animalInput"><p>
+
+			<!-- Area to submit the text input above  -->
+			<input id="animalFinder" type="button" value="Submit"><p>
+		</form>
+
+		<!-- Area to display animal buttons -->
+		<div id="animalButtons"></div>
+
+		<!-- Area to display animal giphy images -->
+		<div id="animalGiphy"></div>
+
+		<footer>© Copyright 2017 Meeso Yang</footer>
+
+	</div>
+
+</body>
+</html>
