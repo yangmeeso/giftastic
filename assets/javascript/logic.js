@@ -3,8 +3,7 @@ $(document).ready(function() {
 	//Global arrays to start with
 	var animals = ["Cat", "Dog", "Bird", "Bear", "skunk", "rabbit"];
 
-	//Function to create new button(s)
-
+	//Create new button(s)
 	function renderButtons() {
 		$("#animalButtons").empty();
 
@@ -27,7 +26,7 @@ $(document).ready(function() {
 
 	renderButtons ();
 
-	//Create the buttons when User's input submitted
+	//Create the button(s) based on User's input submitted
 	$("#animalFinder").on("click", function customButtons(evnet) {
 
 		event.preventDefault();
@@ -49,7 +48,7 @@ $(document).ready(function() {
 		var animals = $(this).attr("animalName");
 
 		var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + animals
-		+ "&api_key=" + /* API Key is provided in the submission note section */;
+		+ "&api_key=" + "PG32XkjICqkuZSeNbRWBoND8e11Mbuql";
 
 		$.ajax({
 			url: queryURL,
@@ -57,6 +56,7 @@ $(document).ready(function() {
 		}).done(function(response) {
 			console.log(queryURL);
 			console.log(response);
+
 
 			//Pending the loop until the button is clicked
 			event.preventDefault();
@@ -71,9 +71,15 @@ $(document).ready(function() {
 
 				var animalP = $("<p>").text("Rating: " + rating);
 
-				var animalImage = $("<img>");
+				var animalImage = $("<img>").attr({
+					src: result[i].images.fixed_height.url,
+					class: "gif",
+					dataState: "still",
+					dataStill: result[i].images.fixed_height_still.url,
+					dataAnimiate: result[i].images.fixed_height.url,
+				});
 
-				animalImage.attr("src", result[i].images.downsized_medium.url);
+				animalImage.attr("src", result[i].images.fixed_height.url);
 
 				animalDiv.append(animalP);
 				animalDiv.append(animalImage);
@@ -88,6 +94,22 @@ $(document).ready(function() {
 	};
 
 	displayAnimals();
+
+	//Swith pause and animate the GIF image(s)
+	$("body").on("click", ".gif", function () {
+		var state = $(this).attr("dataState");
+
+		if (state === "still") {
+			$(this).attr("src", $(this).attr("dataAnimiate"));
+			$(this).attr("dataState", "animate");
+		}
+
+		else if (state === "animate") {
+			$(this).attr("src", $(this).attr("dataStill"));
+			$(this).attr("dataState", "still");
+		}
+
+	});
 
 });
 

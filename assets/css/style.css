@@ -1,0 +1,40 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Pacifico', cursive;
+	width: 100%;
+	max-width: 960px;
+	font-size: 15px;
+	display: block;
+	text-align: center;
+}
+
+footer {
+	clear: both;
+	font-size: 12px;
+	padding: 60px 0 20px 0;
+	color: #6b6b6b;
+}
+
+.container {
+	margin: 0 auto;
+	clear: both;
+}
+
+#header {
+	font-weight: bold;
+	font-size: 30px;
+	width: 100%;
+	max-width: 960px;
+	margin: 30px 0 30px 0;
+}
+
+#animalInput {
+	margin: 20px 0 30px 0;
+}
+
+#animalGiphy {
+	margin-top: 30px;
+}
