@@ -48,7 +48,7 @@ $(document).ready(function() {
 		var animals = $(this).attr("animalName");
 
 		var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + animals
-		+ "&api_key=" + "PG32XkjICqkuZSeNbRWBoND8e11Mbuql";
+		+ "&api_key=" + "";
 
 		$.ajax({
 			url: queryURL,
